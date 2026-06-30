@@ -10,7 +10,7 @@ import CategoryMegaMenu from "./CategoryMegaMenu";
 const navLinks = [
   { name: "Featured Product", href: "/featured", hasDropdown: true },
   { name: "Category Product", href: "/category", hasDropdown: true },
-  { name: "Order Tutorial", href: "/order-tutorial" },
+  // { name: "Order Tutorial", href: "/order-tutorial" },
   { name: "About Us", href: "/about" },
 ];
 

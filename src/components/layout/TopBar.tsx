@@ -32,7 +32,7 @@ export default function TopBar() {
             <FaFacebookF className="h-4 w-4" />
           </Link>
           <Link
-            href="https://instagram.com"
+            href="https://www.instagram.com/dhika4print"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram"
@@ -58,11 +58,11 @@ export default function TopBar() {
             My Account
             <ChevronDown className="h-3 w-3" />
           </button>
-          <button className="flex items-center gap-1.5 px-4 font-medium text-white/95 transition-colors hover:text-white">
+          {/* <button className="flex items-center gap-1.5 px-4 font-medium text-white/95 transition-colors hover:text-white">
             <Bell className="h-3.5 w-3.5" />
             Status Order
             <ChevronDown className="h-3 w-3" />
-          </button>
+          </button> */}
           <button className="flex items-center gap-1.5 pl-4 font-medium text-white/95 transition-colors hover:text-white">
             <Globe className="h-3.5 w-3.5" />
             Language : ID
