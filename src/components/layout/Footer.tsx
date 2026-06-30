@@ -1,21 +1,18 @@
 import Link from "next/link";
 import Image from "next/image";
-import { MapPin, Mail, Phone, ShoppingBag } from "lucide-react";
+import { MapPin, Mail, Phone } from "lucide-react";
 import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0b1b3d] text-white pt-16 pb-6 border-t border-gray-700">
+    <footer className="border-t border-gray-200 bg-slate-50 pb-6 pt-16 text-slate-800">
       <div className="container mx-auto px-4">
         {/* Grid Layout: 1 kolom di mobile, 2 kolom di tablet, 4 kolom di desktop */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+        <div className="mb-12 grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">
           {/* Kolom 1: Logo, About Us & Marketplace Buttons */}
           <div className="flex flex-col space-y-5">
             {/* Logo */}
-            <Link
-              href="/"
-              className="flex items-center text-2xl font-bold tracking-tight"
-            >
+            <Link href="/" className="flex items-center">
               <Image
                 src="/logo-removebg.png"
                 width={150}
@@ -25,7 +22,7 @@ export default function Footer() {
             </Link>
 
             {/* About Us */}
-            <p className="text-sm text-gray-300 leading-relaxed text-justify">
+            <p className="text-sm leading-relaxed text-slate-500">
               Layanan untuk memfasilitasi UMKM agar dapat meningkatkan omzetnya
               dengan pendekatan branding, designing, marketing, dan printing.
             </p>
@@ -36,12 +33,12 @@ export default function Footer() {
                 href="https://shopee.co.id/dhika4print"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 bg-[#ee4d2d] hover:bg-[#ff6224] text-white px-4 py-2.5 rounded-xl text-sm font-bold tracking-wide transition-all duration-300 transform hover:-translate-y-0.5 shadow-sm hover:shadow-md"
+                className="flex items-center justify-center gap-2 rounded-xl bg-[#ee4d2d] px-4 py-2.5 text-sm font-bold tracking-wide text-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#ff6224] hover:shadow-md"
               >
                 <Image
                   src="/shopee-white.png"
-                  width={30}
-                  height={30}
+                  width={28}
+                  height={28}
                   alt="Logo Shopee"
                 />
                 BELANJA DI SHOPEE
@@ -50,12 +47,12 @@ export default function Footer() {
                 href="https://www.tokopedia.com/dhika4print"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 bg-[#03ac0e] hover:bg-[#05cc11] text-white px-4 py-2.5 rounded-xl text-sm font-bold tracking-wide transition-all duration-300 transform hover:-translate-y-0.5 shadow-sm hover:shadow-md"
+                className="flex items-center justify-center gap-2 rounded-xl bg-[#03ac0e] px-4 py-2.5 text-sm font-bold tracking-wide text-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#05cc11] hover:shadow-md"
               >
                 <Image
                   src="/tokopedia.png"
-                  width={40}
-                  height={40}
+                  width={36}
+                  height={36}
                   alt="Logo Tokopedia"
                 />
                 BELANJA DI TOKOPEDIA
@@ -65,72 +62,82 @@ export default function Footer() {
 
           {/* Kolom 2: Alamat */}
           <div>
-            <h4 className="font-bold text-lg mb-6 tracking-wide border-b border-gray-700 pb-2 inline-block">
+            <h4 className="mb-6 inline-block border-b-2 border-brand pb-2 text-base font-bold tracking-wide text-ink">
               Alamat Kami
             </h4>
-            <ul className="space-y-4 text-sm text-gray-300">
+            <ul className="space-y-4 text-sm text-slate-500">
               <li className="flex items-start gap-3">
-                <MapPin className="h-5 w-5 shrink-0 mt-0.5 text-[#00a651]" />
+                <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-brand" />
                 <span className="leading-relaxed">
                   Jl. Alternatif Cibubur No.117, Nagrak, Kec. Gn. Putri,
                   Kabupaten Bogor, Jawa Barat 16967
                 </span>
               </li>
               <li className="flex items-center gap-3">
-                <Mail className="h-5 w-5 shrink-0 text-[#00a651]" />
-                <span>email@dhika4print.com</span>
+                <Mail className="h-5 w-5 shrink-0 text-brand" />
+                <a
+                  href="mailto:email@dhika4print.com"
+                  className="hover:text-brand transition-colors"
+                >
+                  email@dhika4print.com
+                </a>
               </li>
               <li className="flex items-center gap-3">
-                <Phone className="h-5 w-5 shrink-0 text-[#00a651]" />
-                <span>+62 813-1009-2124</span>
+                <Phone className="h-5 w-5 shrink-0 text-brand" />
+                <a
+                  href="tel:+6281310092124"
+                  className="hover:text-brand transition-colors"
+                >
+                  +62 813-1009-2124
+                </a>
               </li>
             </ul>
           </div>
 
           {/* Kolom 3: Quick Links */}
           <div>
-            <h4 className="font-bold text-lg mb-6 tracking-wide border-b border-gray-700 pb-2 inline-block">
+            <h4 className="mb-6 inline-block border-b-2 border-brand pb-2 text-base font-bold tracking-wide text-ink">
               Quick Links
             </h4>
-            <ul className="space-y-3 text-sm text-gray-300">
+            <ul className="space-y-3 text-sm text-slate-500">
               <li>
                 <Link
                   href="/"
-                  className="hover:text-[#00a651] transition-colors flex items-center gap-2"
+                  className="flex items-center gap-2 transition-colors hover:text-brand"
                 >
-                  <span className="text-gray-600">›</span> Beranda
+                  <span className="text-slate-400">›</span> Beranda
                 </Link>
               </li>
               <li>
                 <Link
                   href="/produk"
-                  className="hover:text-[#00a651] transition-colors flex items-center gap-2"
+                  className="flex items-center gap-2 transition-colors hover:text-brand"
                 >
-                  <span className="text-gray-600">›</span> Katalog Produk
+                  <span className="text-slate-400">›</span> Katalog Produk
                 </Link>
               </li>
               <li>
                 <Link
                   href="/cara-pesan"
-                  className="hover:text-[#00a651] transition-colors flex items-center gap-2"
+                  className="flex items-center gap-2 transition-colors hover:text-brand"
                 >
-                  <span className="text-gray-600">›</span> Cara Pemesanan
+                  <span className="text-slate-400">›</span> Cara Pemesanan
                 </Link>
               </li>
               <li>
                 <Link
                   href="/faq"
-                  className="hover:text-[#00a651] transition-colors flex items-center gap-2"
+                  className="flex items-center gap-2 transition-colors hover:text-brand"
                 >
-                  <span className="text-gray-600">›</span> FAQ
+                  <span className="text-slate-400">›</span> FAQ
                 </Link>
               </li>
               <li>
                 <Link
                   href="/kontak"
-                  className="hover:text-[#00a651] transition-colors flex items-center gap-2"
+                  className="flex items-center gap-2 transition-colors hover:text-brand"
                 >
-                  <span className="text-gray-600">›</span> Hubungi Kami
+                  <span className="text-slate-400">›</span> Hubungi Kami
                 </Link>
               </li>
             </ul>
@@ -138,19 +145,19 @@ export default function Footer() {
 
           {/* Kolom 4: Social Media */}
           <div>
-            <h4 className="font-bold text-lg mb-6 tracking-wide border-b border-gray-700 pb-2 inline-block">
+            <h4 className="mb-6 inline-block border-b-2 border-brand pb-2 text-base font-bold tracking-wide text-ink">
               Social Media
             </h4>
-            <ul className="space-y-4 text-sm text-gray-300">
+            <ul className="space-y-4 text-sm text-slate-500">
               <li>
                 <a
                   href="#"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 hover:text-[#00a651] transition-colors group"
+                  className="group flex items-center gap-3 transition-colors hover:text-brand"
                 >
-                  <div className="bg-gray-800 p-2 rounded-full group-hover:bg-[#00a651] transition-colors">
-                    <FaFacebook className="h-4 w-4 text-white" />
+                  <div className="rounded-full bg-slate-200 p-2 transition-colors group-hover:bg-brand">
+                    <FaFacebook className="h-4 w-4 text-slate-600 group-hover:text-white" />
                   </div>
                   Dhika4Print Official
                 </a>
@@ -160,10 +167,10 @@ export default function Footer() {
                   href="https://www.instagram.com/dhika4print"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 hover:text-[#00a651] transition-colors group"
+                  className="group flex items-center gap-3 transition-colors hover:text-brand"
                 >
-                  <div className="bg-gray-800 p-2 rounded-full group-hover:bg-[#00a651] transition-colors">
-                    <FaInstagram className="h-4 w-4 text-white" />
+                  <div className="rounded-full bg-slate-200 p-2 transition-colors group-hover:bg-brand">
+                    <FaInstagram className="h-4 w-4 text-slate-600 group-hover:text-white" />
                   </div>
                   @dhika4print
                 </a>
@@ -173,10 +180,10 @@ export default function Footer() {
                   href="#"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 hover:text-[#00a651] transition-colors group"
+                  className="group flex items-center gap-3 transition-colors hover:text-brand"
                 >
-                  <div className="bg-gray-800 p-2 rounded-full group-hover:bg-[#00a651] transition-colors">
-                    <FaTwitter className="h-4 w-4 text-white" />
+                  <div className="rounded-full bg-slate-200 p-2 transition-colors group-hover:bg-brand">
+                    <FaTwitter className="h-4 w-4 text-slate-600 group-hover:text-white" />
                   </div>
                   @dhika4print
                 </a>
@@ -186,22 +193,22 @@ export default function Footer() {
         </div>
 
         {/* Copyright Section */}
-        <div className="pt-6 border-t border-gray-700/80 text-sm text-gray-400 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="flex flex-col items-center justify-between gap-4 border-t border-gray-200 pt-6 text-sm text-slate-500 md:flex-row">
           <p>
             &copy; {new Date().getFullYear()} Dhika4Print.com. All rights
             reserved.
           </p>
-          <div className="flex gap-4">
+          <div className="flex items-center gap-4">
             <Link
               href="/syarat-ketentuan"
-              className="hover:text-white transition-colors"
+              className="transition-colors hover:text-brand"
             >
               Syarat & Ketentuan
             </Link>
-            <span>•</span>
+            <span className="text-slate-300">•</span>
             <Link
               href="/kebijakan-privasi"
-              className="hover:text-white transition-colors"
+              className="transition-colors hover:text-brand"
             >
               Kebijakan Privasi
             </Link>

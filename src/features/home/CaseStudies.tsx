@@ -1,11 +1,13 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { caseStudies } from "@/lib/site-data";
 
 export default function CaseStudies() {
   const targetRef = useRef<HTMLElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [translateX, setTranslateX] = useState(0);
+  const [titleProgress, setTitleProgress] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,6 +31,14 @@ export default function CaseStudies() {
 
       // Memperbarui state translateX berdasarkan persentase scroll
       setTranslateX(progress * maxHorizontalScroll);
+
+      // Title hide progress: selesai sembunyi di 15% awal scroll, lalu tetap hidden
+      const hideThreshold = 0.15;
+      const titleHideProgress = Math.max(
+        0,
+        Math.min(1, progress / hideThreshold),
+      );
+      setTitleProgress(titleHideProgress);
     };
 
     // Event listener untuk scroll dan resize layar
@@ -44,15 +54,6 @@ export default function CaseStudies() {
     };
   }, []);
 
-  // Membuat 5 block dummy untuk mensimulasikan konten di video (kumpulan feed instagram 3x3)
-  const caseStudies = [
-    { id: 1, title: "Campaign Brand A" },
-    { id: 2, title: "Menu Restoran B" },
-    { id: 3, title: "Rebranding UMKM C" },
-    { id: 4, title: "Event Skala Nasional D" },
-    { id: 5, title: "Packaging Produk E" },
-  ];
-
   return (
     <section ref={targetRef} className="relative h-[300vh] bg-white">
       {/* 
@@ -62,7 +63,13 @@ export default function CaseStudies() {
 
       {/* Container Sticky: akan menahan konten di tengah layar selama container luar di-scroll */}
       <div className="sticky top-0 flex h-screen flex-col justify-center overflow-hidden">
-        <div className="container mx-auto px-4 md:px-8 mb-8 md:mb-12">
+        <div
+          className="container mx-auto px-4 md:px-8 mb-8 md:mb-12 transition-none"
+          style={{
+            opacity: 1 - titleProgress,
+            transform: `translateY(-${titleProgress * 40}px)`,
+          }}
+        >
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
             Our Case Studies
           </h2>
@@ -80,34 +87,19 @@ export default function CaseStudies() {
             }}
           >
             {/* Render Block Case Studies */}
-            {caseStudies.map((study) => (
-              <div
-                key={study.id}
-                className="w-[300px] md:w-[450px] shrink-0 flex flex-col gap-4"
-              >
-                {/* Simulasi Grid 3x3 seperti di video */}
-                <div className="grid grid-cols-3 gap-1 md:gap-2 bg-gray-100 p-1 md:p-2 rounded-xl border border-gray-200">
-                  {[...Array(9)].map((_, i) => (
-                    <div
-                      key={i}
-                      className="aspect-square bg-gray-300 relative overflow-hidden group rounded-md flex items-center justify-center cursor-pointer"
-                    >
-                      {/* Placeholder Text untuk Image - Ganti dengan Next Image */}
-                      <span className="text-[10px] md:text-xs font-bold text-gray-400">
-                        1:1
-                      </span>
+            {caseStudies.map((cs) => (
+              <div key={cs.name} className="w-[300px] md:w-[450px] shrink-0">
+                {/* Mengganti grid 3x3 menjadi satu kotak 1:1 */}
+                <div className="aspect-square bg-gray-200 overflow-hidden relative group cursor-pointer">
+                  <img
+                    src={cs.image}
+                    alt={cs.name}
+                    draggable={false}
+                    className="h-full w-full object-cover"
+                  />
 
-                      {/* Efek Hover overlay */}
-                      <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Judul/Keterangan di bawah grid (opsional jika mengikuti video) */}
-                <div className="text-center mt-2">
-                  <h3 className="font-bold text-gray-800 tracking-wide">
-                    {study.title}
-                  </h3>
+                  {/* Efek Hover overlay tetap dipertahankan */}
+                  <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
               </div>
             ))}
