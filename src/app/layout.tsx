@@ -15,7 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Dhika4Print - Layanan Cetak Online Terpercaya",
+  title:
+    "Partner UMKM Dhika4Print Melayani Pemasaran Produk Kamu - Dhika4Print",
   description:
     "Platform Web-to-Print terpercaya. Pesan cetakan secara online dengan mudah dan cepat.",
 };

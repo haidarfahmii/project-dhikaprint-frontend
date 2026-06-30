@@ -4,6 +4,7 @@ import Hero from "@/features/home/Hero";
 import JourneyBanner from "@/features/home/JourneyBanner";
 import CaseStudies from "@/features/home/CaseStudies";
 import RecentBlog from "@/features/home/RecentBlog";
+import CategoryMenu from "@/features/home/CategotyMenu";
 
 export default function Home() {
   return (
@@ -11,19 +12,22 @@ export default function Home() {
       {/* 1. Hero Banner Utama */}
       <Hero />
 
-      {/* 2. Customer Favorite Section */}
+      {/* 2. Menu Kategori (Ikon-ikon) */}
+      <CategoryMenu />
+
+      {/* 3. Customer Favorite Section */}
       <CustomerFavorite />
 
-      {/* 3. Featured Product Section */}
+      {/* 4. Featured Product Section */}
       <FeaturedProduct />
-
-      {/* 4. Banner Perjalanan Kami */}
-      <JourneyBanner />
 
       {/* 5. Case Studies Section */}
       <CaseStudies />
 
-      {/* 6. Recent Blog Section */}
+      {/* 6. Banner Perjalanan Kami */}
+      <JourneyBanner />
+
+      {/* 7. Recent Blog Section */}
       <RecentBlog />
     </div>
   );

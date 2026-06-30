@@ -1,94 +1,7 @@
+import { featuredProducts } from "@/data/dummyData";
 import { ShoppingCart } from "lucide-react";
 
 export default function FeaturedProduct() {
-  // Data produk disesuaikan dengan katalog percetakan yang spesifik
-  const products = [
-    {
-      title: "Print A3+ Art Paper (120gr/150gr)",
-      price: "Rp 8.000",
-      unit: "/ lbr",
-      category: "PRINT A3+",
-    },
-    {
-      title: "Stiker Vinyl A3+",
-      price: "Rp 16.500",
-      unit: "/ lbr",
-      category: "STICKER A3+",
-    },
-    {
-      title: "Jilid Hard Cover",
-      price: "Rp 55.000",
-      unit: "/ pcs",
-      category: "FINISHING A3+",
-    },
-    {
-      title: "Brosur Ukuran A4",
-      price: "Rp 715.000",
-      unit: "/ rim", // Asumsi harga borongan
-      category: "BROSUR",
-    },
-    {
-      title: "Kartu Nama AC 260gr + Glossy",
-      price: "Rp 46.500",
-      unit: "/ box",
-      category: "KARTU NAMA",
-    },
-    {
-      title: "Cetak ID Card (PVC)",
-      price: "Rp 27.500",
-      unit: "/ pcs",
-      category: "ID CARD",
-    },
-    {
-      title: "E-Toll Emoney Custom (1 Sisi)",
-      price: "Rp 71.500",
-      unit: "/ pcs",
-      category: "E-TOLL",
-    },
-    {
-      title: "Plakat Kayu Premium",
-      price: "Rp 363.000",
-      unit: "/ pcs",
-      category: "PLAKAT",
-    },
-    {
-      title: "Tumbler Custom",
-      price: "Rp 143.000",
-      unit: "/ pcs",
-      category: "MERCHANDISE",
-    },
-    {
-      title: "Cetak Latex HVS 80gr (A0)",
-      price: "Rp 77.000",
-      unit: "/ lbr",
-      category: "LATEX",
-    },
-    {
-      title: "Spanduk Flexi Korea 440gr",
-      price: "Rp 60.500",
-      unit: "/ m²",
-      category: "OUTDOOR",
-    },
-    {
-      title: "Stiker Vinyl White (UV Hires)",
-      price: "Rp 165.000",
-      unit: "/ m²",
-      category: "INDOOR UV HIRES",
-    },
-    {
-      title: "X-Banner Flexi Korea 440gr",
-      price: "Rp 110.000",
-      unit: "/ set",
-      category: "PAKET BANNER",
-    },
-    {
-      title: "Print UV Flatbed",
-      price: "Rp 165",
-      unit: "/ cm",
-      category: "UV FLATBED",
-    },
-  ];
-
   return (
     <section className="py-16 bg-[#f8f9fc]">
       <div className="container mx-auto px-4">
@@ -109,7 +22,7 @@ export default function FeaturedProduct() {
 
         {/* Product Grid - 4 Columns on Desktop */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {products.map((product, idx) => (
+          {featuredProducts.slice(0, 8).map((product, idx) => (
             <div
               key={idx}
               className="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden flex flex-col group hover:shadow-lg hover:border-[#00a651]/50 transition-all duration-300"
@@ -147,7 +60,7 @@ export default function FeaturedProduct() {
                 {/* Action Buttons */}
                 <div className="flex gap-2">
                   <button className="flex-grow bg-white border border-[#00a651] text-[#00a651] rounded text-xs font-bold tracking-wider py-2.5 hover:bg-[#00a651] hover:text-white transition-colors uppercase">
-                    Pilih Opsi
+                    Lihat Detail
                   </button>
                   <button
                     className="w-10 flex items-center justify-center bg-gray-50 border border-gray-200 text-gray-600 rounded hover:bg-[#00a651] hover:text-white hover:border-[#00a651] transition-colors"
