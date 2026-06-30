@@ -1,71 +1,168 @@
-import { ChevronLeft, ChevronRight } from "lucide-react";
-// import Image from 'next/image'; // Uncomment ini saat Anda sudah memiliki aset gambar asli
+"use client";
+
+import * as React from "react";
+import Autoplay from "embla-carousel-autoplay";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  type CarouselApi,
+} from "@/components/ui/carousel";
+
+const heroSlides = [
+  {
+    id: 1,
+    title: (
+      <>
+        {" "}
+        <span className="text-brand font-bold">PRINTING</span> THAT MAKES AN
+        IMPACT{" "}
+      </>
+    ),
+    description:
+      "Dari kartu nama hingga media promosi skala besar, kami membantu bisnis menghadirkan kualitas cetak yang mampu menarik perhatian dan meninggalkan kesan profesional.",
+    image:
+      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80",
+    layout: "text-left",
+  },
+  {
+    id: 2,
+    title: (
+      <>
+        {" "}
+        <span className="text-blue-600 font-bold">MARKETING</span> THAT GETS
+        NOTICED{" "}
+      </>
+    ),
+    description:
+      "Promosi yang efektif dimulai dari visual yang tepat. Kami membantu bisnis meningkatkan visibilitas melalui berbagai media pemasaran yang menarik dan profesional.",
+    image:
+      "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80",
+    layout: "text-left",
+  },
+  {
+    id: 3,
+    title: (
+      <>
+        {" "}
+        <span className="text-purple-600 font-bold">BRANDING</span> THAT BUILDS
+        TRUST{" "}
+      </>
+    ),
+    description:
+      "Bangun identitas bisnis yang kuat dan mudah diingat melalui solusi branding yang konsisten, profesional, dan relevan dengan target pasar Anda.",
+    image:
+      "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1200&q=80",
+    layout: "text-right",
+  },
+];
 
 export default function Hero() {
+  const [api, setApi] = React.useState<CarouselApi>();
+  const [current, setCurrent] = React.useState(0);
+  const [count, setCount] = React.useState(0);
+
+  // Inisialisasi Plugin Autoplay menggunakan useRef
+  // delay: 5000 artinya slide akan berpindah otomatis setiap 5 detik
+  const plugin = React.useRef(
+    Autoplay({ delay: 5000, stopOnInteraction: true }),
+  );
+
+  React.useEffect(() => {
+    if (!api) {
+      return;
+    }
+
+    setCount(api.scrollSnapList().length);
+    setCurrent(api.selectedScrollSnap());
+
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap());
+    });
+  }, [api]);
+
   return (
-    <section className="pt-6 pb-2">
-      <div className="container mx-auto px-4">
-        {/* Banner Container */}
-        <div className="relative w-full h-[350px] md:h-[450px] bg-[#006842] rounded-xl overflow-hidden shadow-sm flex flex-col items-center justify-center group">
-          {/* Top Right Floating Button */}
-          <div className="absolute top-6 right-6 z-30">
-            <button className="bg-white text-gray-900 font-bold px-6 py-2.5 rounded-full text-xs tracking-widest shadow-md hover:bg-gray-100 hover:scale-105 transition-all uppercase">
-              Pesan Now
-            </button>
-          </div>
+    <section className="w-full bg-[#f4f5f7] pt-8 pb-12 relative overflow-hidden">
+      <div className="container-x relative">
+        <Carousel
+          setApi={setApi}
+          className="w-full"
+          opts={{ loop: true }}
+          // Masukkan plugin ke dalam Carousel
+          plugins={[plugin.current]}
+          // Hentikan auto-slide saat mouse diarahkan ke banner, dan mulai lagi saat mouse pergi
+          onMouseEnter={plugin.current.stop}
+          onMouseLeave={plugin.current.reset}
+        >
+          <CarouselContent>
+            {heroSlides.map((slide, index) => {
+              const isActive = current === index;
 
-          {/* Left / Right Nav Arrows */}
-          <button className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/30 text-white rounded-full flex items-center justify-center hover:bg-black/50 transition-colors z-30 backdrop-blur-sm opacity-0 group-hover:opacity-100">
-            <ChevronLeft className="w-6 h-6" />
-          </button>
-          <button className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/30 text-white rounded-full flex items-center justify-center hover:bg-black/50 transition-colors z-30 backdrop-blur-sm opacity-0 group-hover:opacity-100">
-            <ChevronRight className="w-6 h-6" />
-          </button>
+              return (
+                <CarouselItem key={slide.id}>
+                  <div
+                    className={`flex flex-col-reverse md:flex-row items-center justify-between min-h-[400px] gap-8 px-4 md:px-12 ${
+                      slide.layout === "text-right" ? "md:flex-row-reverse" : ""
+                    }`}
+                  >
+                    {/* Text Content */}
+                    <div className="w-full md:w-1/2 flex flex-col items-start text-left z-10 space-y-6">
+                      <h1
+                        className={`text-4xl md:text-5xl lg:text-6xl font-light text-slate-800 tracking-tight transform transition-all duration-[800ms] ease-out ${
+                          isActive
+                            ? "opacity-100 translate-y-0"
+                            : "opacity-0 translate-y-12"
+                        }`}
+                      >
+                        {slide.title}
+                      </h1>
 
-          {/* Center Images Presentation (Mocking the 3D perspective from the design) */}
-          <div className="relative w-full h-full flex items-center justify-center gap-4 md:gap-8 z-10 px-12 mt-[-40px]">
-            {/* Product Mockup 1: Brosur (Left) */}
-            <div className="hidden md:flex w-1/3 h-56 bg-gray-200 -rotate-6 shadow-xl rounded overflow-hidden relative opacity-90 transform transition-transform hover:rotate-0 hover:z-20">
-              <div className="absolute inset-0 bg-gradient-to-tr from-gray-300 to-white flex items-center justify-center">
-                <span className="text-gray-400 font-bold text-sm tracking-widest">
-                  MOCKUP BROSUR
-                </span>
-              </div>
-            </div>
+                      <div
+                        className={`text-slate-500 text-sm md:text-base leading-relaxed whitespace-pre-line max-w-lg transform transition-all duration-[800ms] delay-200 ease-out ${
+                          isActive
+                            ? "opacity-100 translate-y-0"
+                            : "opacity-0 translate-y-12"
+                        }`}
+                      >
+                        {slide.description}
+                      </div>
+                    </div>
 
-            {/* Product Mockup 2: Kartu Nama (Center / Active) */}
-            <div className="w-3/4 md:w-1/3 h-64 bg-white shadow-2xl rounded overflow-hidden relative z-20 scale-105">
-              <div className="absolute inset-0 bg-gradient-to-br from-white to-gray-200 flex items-center justify-center">
-                <span className="text-[#00a651] font-bold text-sm tracking-widest">
-                  MOCKUP KARTU NAMA
-                </span>
-              </div>
-            </div>
+                    {/* Image Content */}
+                    <div
+                      className={`w-full md:w-1/2 flex justify-center relative h-[300px] md:h-[450px] transform transition-all duration-[1000ms] delay-300 ease-out ${
+                        isActive
+                          ? "opacity-100 scale-100 translate-x-0"
+                          : "opacity-0 scale-90 translate-x-8"
+                      }`}
+                    >
+                      <img
+                        src={slide.image}
+                        alt="Hero Image"
+                        className="object-contain w-full h-full drop-shadow-xl"
+                      />
+                    </div>
+                  </div>
+                </CarouselItem>
+              );
+            })}
+          </CarouselContent>
+        </Carousel>
 
-            {/* Product Mockup 3: Spanduk (Right) */}
-            <div className="hidden md:flex w-1/3 h-56 bg-gray-200 rotate-6 shadow-xl rounded overflow-hidden relative opacity-90 transform transition-transform hover:rotate-0 hover:z-20">
-              <div className="absolute inset-0 bg-gradient-to-bl from-gray-300 to-white flex items-center justify-center">
-                <span className="text-gray-400 font-bold text-sm tracking-widest">
-                  MOCKUP SPANDUK
-                </span>
-              </div>
-            </div>
-          </div>
-
-          {/* Bottom Content: Title & Pagination */}
-          <div className="absolute bottom-0 w-full bg-gradient-to-t from-[#00422a] to-transparent pt-24 pb-6 flex flex-col items-center z-20">
-            <h1 className="text-white text-2xl md:text-4xl lg:text-5xl font-black tracking-wider uppercase mb-6 drop-shadow-lg text-center px-4">
-              Cetak Cepat Dan Berkualitas!
-            </h1>
-
-            {/* Pagination Indicators (Pill style) */}
-            <div className="flex gap-2 items-center">
-              <div className="w-8 h-1.5 bg-white rounded-full shadow-sm cursor-pointer"></div>
-              <div className="w-3 h-1.5 bg-white/40 hover:bg-white/70 rounded-full transition-colors cursor-pointer"></div>
-              <div className="w-3 h-1.5 bg-white/40 hover:bg-white/70 rounded-full transition-colors cursor-pointer"></div>
-              <div className="w-3 h-1.5 bg-white/40 hover:bg-white/70 rounded-full transition-colors cursor-pointer"></div>
-            </div>
-          </div>
+        {/* Custom Dots Pagination */}
+        <div className="flex justify-center items-center gap-2 mt-8">
+          {Array.from({ length: count }).map((_, index) => (
+            <button
+              key={index}
+              onClick={() => api?.scrollTo(index)}
+              className={`h-3 w-3 rounded-full transition-all duration-300 ${
+                current === index
+                  ? "bg-brand w-3"
+                  : "bg-gray-300 hover:bg-gray-400"
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
         </div>
       </div>
     </section>

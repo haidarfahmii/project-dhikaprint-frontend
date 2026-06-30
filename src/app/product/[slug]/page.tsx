@@ -23,8 +23,7 @@ export default async function ProdukDetail({
       product={{
         name: product.title,
         breadcrumb: product.title,
-        // Belum ada gambar asli per produk di dummyData, jadi pakai placeholder
-        // di dalam ProductDetailPage (image dikosongkan).
+        image: product.image,
         features: [
           `Kategori: ${product.category}`,
           `Harga mulai dari ${product.price} ${product.unit}`,

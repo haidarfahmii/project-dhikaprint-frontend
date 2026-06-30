@@ -4,7 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { Search, Bell, ShoppingCart, Menu, ChevronDown } from "lucide-react";
 import { useRef, useState, MouseEvent } from "react";
-import TopBar from "./TopBar";
 import CategoryMegaMenu from "./CategoryMegaMenu";
 
 const navLinks = [
@@ -43,8 +42,6 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 w-full bg-white text-ink shadow-sm">
-      <TopBar />
-
       {/* --- Tingkat Utama: Logo, Menu, Icons --- */}
       <div className="container-x relative flex h-20 items-center justify-between">
         <div className="flex items-center gap-4">
