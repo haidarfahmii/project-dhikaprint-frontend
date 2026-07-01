@@ -1,240 +1,175 @@
-export type MegaMenuColumn = {
-  heading: string;
-  links: string[];
-};
-
 export type MegaMenuItem = {
   label: string;
+  /**
+   * Path/URL gambar promo untuk banner di mega menu.
+   * TODO: ganti dengan asset asli, saat ini masih placeholder.
+   */
   image: string;
   ctaLabel: string;
-  columns: MegaMenuColumn[];
+  products: string[];
 };
 
 export const megaMenu: MegaMenuItem[] = [
   {
-    label: "Business Cards",
-    image:
-      "https://dhika4print.com/wp-content/uploads/2023/02/kartu-nama-kotak.jpg",
-    ctaLabel: "Liat Semua Business Cards",
-    columns: [
-      { heading: "Shapes", links: ["Standard", "Rounded Corner", "Square"] },
-      { heading: "Premium Cards", links: ["Glossy", "Matte"] },
-      {
-        heading: "Specialty Cards",
-        links: ["Business Cards Sticker", "Loyalty Cards", "Sparkling"],
-      },
+    label: "UV Flatbed",
+    image: "/images/mega-menu/uv-flatbed.jpg",
+    ctaLabel: "Liat Semua UV Flatbed",
+    products: ["Laser Print (per menit)", "Print UV (per cm)"],
+  },
+  {
+    label: "Paket Banner",
+    image: "/images/mega-menu/paket-banner.jpg",
+    ctaLabel: "Liat Semua Paket Banner",
+    products: [
+      "UV Stiker + Foamboard",
+      "X Banner - Flexi China 280gr",
+      "X Banner - Flexi Korea 440gr",
+      "X Banner - Albatros",
+      "Roll Banner 160 x 60 FK440gr",
+      "Roll Banner 160 x 60 Albatros",
+      "Roll Banner 200 x 80 FK440gr",
+      "Roll Banner 200 x 80 Albatros",
+      "Mini X Banner AC260 + Lam",
+      "Tripod Banner (Foamboard)",
+      "Tripod Banner (Impraboard)",
     ],
   },
   {
-    label: "Postcards & Print Advertising",
-    image:
-      "https://dhika4print.com/wp-content/uploads/2023/02/BROSUR-A4-min-1024x1024-2-1024x1024.jpg",
-    ctaLabel: "Liat Semua Printing",
-    columns: [
-      {
-        heading: "Postcards",
-        links: ["Postcards", "Postcards Mailing Service"],
-      },
-      {
-        heading: "Certificate",
-        links: [
-          "E-Certificate",
-          "Sertifikat Penghargaan",
-          "Sertifikat Partisipasi",
-          "Sertifikat Kelulusan",
-          "Sertifikat Magang",
-        ],
-      },
-      {
-        heading: "Advertising",
-        links: [
-          "Flyer",
-          "Brosur",
-          "Map",
-          "Door Tag",
-          "Papan Akrilik Buka-Tutup",
-          "Display Meja",
-          "Buku Menu",
-          "Booklets",
-        ],
-      },
+    label: "Indoor UV Hires",
+    image: "/images/mega-menu/indoor-uv-hires.jpg",
+    ctaLabel: "Liat Semua Indoor UV Hires",
+    products: [
+      "Albatros",
+      "Photo Paper",
+      "Stiker Vinyl White",
+      "Stiker Vinyl Transparant",
+      "Canvas Paper",
+      "UV Duratrans",
     ],
   },
   {
-    label: "Sign, Banners & Poster",
-    image:
-      "https://dhika4print.com/wp-content/uploads/2023/02/guide-ukuran-tent-card.png",
-    ctaLabel: "Liat Semua Sign & Banner",
-    columns: [
-      {
-        heading: "Custom Banner",
-        links: [
-          "Banner Selongsong",
-          "Banner Kain",
-          "X Banner",
-          "Roll Up Banner",
-          "Mini X Banner",
-        ],
-      },
-      {
-        heading: "Office Sign",
-        links: [
-          "Canvas Sign",
-          "Plat Desk Name",
-          "Signage Toilet",
-          "Signage Petunjuk Arah",
-          "Nametag Meja",
-        ],
-      },
-      {
-        heading: "Poster",
-        links: ["Posters", "Foam Board", "PVC-Free Foam Board"],
-      },
+    label: "Latex",
+    image: "/images/mega-menu/latex.jpg",
+    ctaLabel: "Liat Semua Latex",
+    products: [
+      "HVS (80gr)",
+      "Art Paper (150gr)",
+      "Art Cartoon (260)",
+      "Bahan Sendiri (Roll)",
     ],
   },
   {
-    label: "Label, Stickers & Packaging",
-    image:
-      "https://dhika4print.com/wp-content/uploads/2023/02/Thank-you-card-hand.png",
-    ctaLabel: "Liat Semua Label & Sticker",
-    columns: [
-      {
-        heading: "Specialty Label",
-        links: [
-          "Waterproof Label",
-          "Label 17-an",
-          "Label Lebaran",
-          "Label Fragile",
-          "Label Thank You",
-        ],
-      },
-      {
-        heading: "Packaging",
-        links: [
-          "Paperbowl",
-          "Plastik Cup PET Datar",
-          "Paper Cup",
-          "Paper Lunch Box",
-        ],
-      },
-      {
-        heading: "Custom Sticker",
-        links: [
-          "Stiker A3",
-          "Sticker Satuan",
-          "Sticker Bulat",
-          "Sticker Kotak",
-        ],
-      },
+    label: "Plakat",
+    image: "/images/mega-menu/plakat.jpg",
+    ctaLabel: "Liat Semua Plakat",
+    products: ["Plakat Kayu", "Plakat Akrilik (2cm)", "Plakat Jepit"],
+  },
+  {
+    label: "E-Toll",
+    image: "/images/mega-menu/e-toll.jpg",
+    ctaLabel: "Liat Semua E-Toll",
+    products: ["E-Toll Emoney", "E-Toll (Bahan Sendiri)"],
+  },
+  {
+    label: "ID Card",
+    image: "/images/mega-menu/id-card.jpg",
+    ctaLabel: "Liat Semua ID Card",
+    products: ["ID Card (PVC)", "ID Card (Bahan Sendiri)"],
+  },
+  {
+    label: "Kartu Nama",
+    image: "/images/mega-menu/kartu-nama.jpg",
+    ctaLabel: "Liat Semua Kartu Nama",
+    products: [
+      "Art Cartoon (260)",
+      "Art Cartoon (260) + Glossy",
+      "Art Cartoon (260) + Doff",
+      "Fancy Paper BW",
+      "Fancy Paper Concorde",
+      "Fancy Paper Jasmine",
+      "Fancy Paper Linen",
     ],
   },
   {
-    label: "Home & Gifts",
-    image:
-      "https://dhika4print.com/wp-content/uploads/2023/02/merchandise-20-1.jpg",
-    ctaLabel: "Liat Semua Home & Gifts",
-    columns: [
-      {
-        heading: "Bestseller",
-        links: [
-          "Holiday Card",
-          "Kalender Dinding",
-          "Kalender Meja",
-          "Custom Mug",
-          "Photo Book",
-        ],
-      },
-      {
-        heading: "Wall Arts",
-        links: [
-          "Custom Canvas",
-          "Poster Dinding",
-          "Framed Print",
-          "Photo Tiles",
-        ],
-      },
-      {
-        heading: "Personalized Gift",
-        links: [
-          "Custom Photo Book",
-          "Notebook",
-          "Totebag",
-          "Akrilik LED Photo",
-        ],
-      },
+    label: "Brosur",
+    image: "/images/mega-menu/brosur.jpg",
+    ctaLabel: "Liat Semua Brosur",
+    products: ["A6", "A5", "1/3 A4", "A4"],
+  },
+  {
+    label: "Finishing A3+",
+    image: "/images/mega-menu/finishing-a3-plus.jpg",
+    ctaLabel: "Liat Semua Finishing A3+",
+    products: [
+      "Laminasi Glossy",
+      "Laminasi Doff",
+      "Staples",
+      "Spiral",
+      "Spiral Jumbo",
+      "Soft Cover",
+      "Soft Cover Jumbo",
+      "Hard Cover",
+      "Hard Cover Jumbo",
+      "Block Note",
+      "Potong Kertas",
+      "Cut Kisscut Standard",
+      "Cut Kisscut Special",
+      "Cut Diecut",
     ],
   },
   {
-    label: "Invitation & Stationery",
-    image:
-      "https://dhika4print.com/wp-content/uploads/2023/02/thank-you-card-test.png",
-    ctaLabel: "Liat Semua Invitation",
-    columns: [
-      {
-        heading: "Stationery",
-        links: [
-          "Thank You Cards",
-          "Note Cards",
-          "Custom Envelope",
-          "Notebooks",
-          "Letterhead",
-        ],
-      },
-      {
-        heading: "Persiapan Pernikahan",
-        links: [
-          "Kartu Undangan",
-          "Buku Tamu",
-          "Undangan Online",
-          "Kartu Terima Kasih",
-        ],
-      },
-      {
-        heading: "Ulang Tahun",
-        links: [
-          "Backdrop",
-          "Kartu Undangan",
-          "Kartu Ucapan",
-          "Sticker Birthday",
-        ],
-      },
+    label: "Sticker A3+",
+    image: "/images/mega-menu/sticker-a3-plus.jpg",
+    ctaLabel: "Liat Semua Sticker A3+",
+    products: [
+      "Stiker Chromo",
+      "Stiker Vinyl",
+      "Stiker Transparant",
+      "Stiker Silver",
+      "Stiker Hologram",
+      "Stiker Craft",
+      "Stiker HVS",
     ],
   },
   {
-    label: "Clothing & Bags",
-    image:
-      "https://dhika4print.com/wp-content/uploads/2023/02/drifit-dtex-foto-50-1024x1024.jpg",
-    ctaLabel: "Liat Semua Clothing & Bags",
-    columns: [
-      { heading: "Shirt & Tops", links: ["T-Shirt", "Polo", "Kemeja"] },
-      {
-        heading: "Sport",
-        links: ["Dri-Fit Polo", "Dri-Fit T-Shirt", "Hoodie", "Sweatshirts"],
-      },
-      {
-        heading: "Outerwears",
-        links: ["Jacket", "Sweatshirts", "Fleece & Knits", "Vest"],
-      },
+    label: "Print A3+",
+    image: "/images/mega-menu/print-a3-plus.jpg",
+    ctaLabel: "Liat Semua Print A3+",
+    products: [
+      "HVS (80gr, 100gr)",
+      "Art Paper (120gr, 150gr)",
+      "Mate Paper (150gr)",
+      "Art Cartoon (210gr, 260gr)",
+      "Art Cartoon (310gr)",
+      "Fancy Paper BW",
+      "Fancy Paper Concorde",
+      "Fancy Paper Jasmine",
+      "Fancy Paper Linen",
+      "Canvas Paper",
+      "Photo Paper A4",
     ],
   },
   {
-    label: "Promotional Products",
-    image:
-      "https://dhika4print.com/wp-content/uploads/2023/02/dhika-handbanner-20.jpg",
-    ctaLabel: "Liat Semua Promotional Products",
-    columns: [
-      {
-        heading: "Writing & Offices",
-        links: ["Pens", "Pencils", "Notebooks", "Lanyards"],
-      },
-      {
-        heading: "Drinkware",
-        links: ["Mugs", "Water Bottles", "Travel Mugs", "Tumblers"],
-      },
-      {
-        heading: "Lifestyle",
-        links: ["Keychains", "Home & Tools", "Travel Essentials"],
-      },
+    label: "Merchandise",
+    image: "/images/mega-menu/merchandise.jpg",
+    ctaLabel: "Liat Semua Merchandise",
+    products: [
+      "Tumbler (Bahan Sendiri)",
+      "Tumbler",
+      "Tumbler Suhu",
+      "Pin 58 mm",
+      "Pin 44 mm",
+    ],
+  },
+  {
+    label: "Outdoor",
+    image: "/images/mega-menu/outdoor.jpg",
+    ctaLabel: "Liat Semua Outdoor",
+    products: [
+      "Flexi China 280gr",
+      "Flexi Korea 440gr",
+      "Backlite",
+      "One Way Vision",
     ],
   },
 ];

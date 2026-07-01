@@ -10,6 +10,10 @@ const nextConfig: NextConfig = {
         port: "",
         pathname: "/**", // Mengizinkan semua path setelah domain
       },
+      {
+        protocol: "https",
+        hostname: "dhika4print.com", // Ganti dengan domain asal gambarmu
+      },
     ],
   },
 };

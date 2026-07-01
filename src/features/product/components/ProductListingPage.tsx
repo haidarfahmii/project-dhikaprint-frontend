@@ -263,25 +263,15 @@ export default function ProductListingPage({
                         />
                       </button>
                       {isOpen && (
-                        <div className="space-y-3 bg-muted px-3 py-3">
-                          {item.columns.map((col) => (
-                            <div key={col.heading}>
-                              <p className="mb-1 text-[11px] font-semibold uppercase tracking-wide text-muted-foreground">
-                                {col.heading}
-                              </p>
-                              <ul className="space-y-1">
-                                {col.links.map((link) => (
-                                  <li key={link}>
-                                    <Link
-                                      href={`/kategori/${slugify(link)}`}
-                                      className="text-xs text-foreground hover:text-brand"
-                                    >
-                                      {link}
-                                    </Link>
-                                  </li>
-                                ))}
-                              </ul>
-                            </div>
+                        <div className="space-y-1 bg-muted px-3 py-3">
+                          {item.products.map((product) => (
+                            <Link
+                              key={product}
+                              href={`/kategori/${slugify(product)}`}
+                              className="block text-xs text-foreground hover:text-brand"
+                            >
+                              {product}
+                            </Link>
                           ))}
                         </div>
                       )}

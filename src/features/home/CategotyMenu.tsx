@@ -38,7 +38,7 @@ export default function CategoryMenu() {
 
           {/* Tombol See All Categories (Slot ke-6) */}
           <Link
-            href="/katalog"
+            href="/product"
             className="group flex flex-col items-center justify-center py-6 px-4 bg-gray-50/80 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 hover:border-[#00a651] hover:bg-white cursor-pointer"
           >
             <div className="h-10 w-10 bg-[#00a651]/10 rounded-full flex items-center justify-center mb-3 group-hover:scale-110 group-hover:bg-[#00a651] transition-all duration-300">

@@ -30,27 +30,23 @@ export default function CategoryMegaMenu() {
           ))}
         </div>
 
-        {/* Kolom kanan: sub-kategori (2 kolom) + promo banner */}
+        {/* Kolom kanan: daftar produk (auto multi-column) + promo banner */}
         <div className="flex flex-1 flex-col">
-          <div className="grid flex-1 grid-cols-2 gap-x-8 px-8 py-6">
-            {active.columns.map((col) => (
-              <div key={col.heading}>
-                <p className="mb-3 text-sm font-bold text-ink">{col.heading}</p>
-                <ul className="space-y-2">
-                  {col.links.map((link) => (
-                    <li key={link}>
-                      <Link
-                        href="#"
-                        className="flex items-center gap-1.5 text-sm text-gray-600 transition-colors hover:text-brand"
-                      >
-                        <ChevronRight className="h-3 w-3 opacity-50" />
-                        {link}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+          <div className="flex-1 px-8 py-6">
+            <p className="mb-3 text-sm font-bold text-ink">{active.label}</p>
+            <ul className="columns-2 gap-x-8">
+              {active.products.map((product) => (
+                <li key={product} className="mb-2 break-inside-avoid">
+                  <Link
+                    href="#"
+                    className="flex items-center gap-1.5 text-sm text-gray-600 transition-colors hover:text-brand"
+                  >
+                    <ChevronRight className="h-3 w-3 shrink-0 opacity-50" />
+                    {product}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
 
           <Link

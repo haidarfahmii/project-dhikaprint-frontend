@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { favoriteImages } from "@/lib/site-data";
 
@@ -75,19 +76,22 @@ export default function CustomerFavorites() {
         onMouseLeave={stopDragging}
         onScroll={handleScroll}
         className={`flex w-full overflow-x-auto scrollbar-hide ${
-          dragging ? "cursor-grabbing select-none" : "cursor-grab"
+          dragging ? "cursor-grabbing select-none" : "cursor-default"
         }`}
       >
         {loopedImages.map((src, i) => (
           <div
             key={i}
-            className="h-72 w-1/3 shrink-0 overflow-hidden sm:h-[420px]"
+            // Tambahkan class "relative" di sini agar properti "fill" pada Image berfungsi
+            className="relative h-72 w-1/3 shrink-0 overflow-hidden sm:h-[420px]"
           >
-            <img
+            <Image
               src={src}
               alt={`Customer favorite ${(i % setCount) + 1}`}
+              fill // Menggantikan h-full w-full
               draggable={false}
-              className="h-full w-full object-cover transition duration-300 hover:scale-105"
+              className="object-cover" // Tidak ada class zoom (hover:scale-105)
+              sizes="(max-width: 768px) 33vw, 33vw" // Opsional tapi sangat disarankan untuk optimasi fill
             />
           </div>
         ))}

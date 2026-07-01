@@ -18,7 +18,7 @@ export default function FeaturedProduct() {
               Pilihan produk cetak terbaik untuk kebutuhan Anda.
             </p>
           </div>
-          <button className="hidden md:block text-[#00a651] font-bold text-sm hover:underline tracking-wide">
+          <button className="hidden md:block text-[#00a651] font-bold text-sm hover:underline tracking-wide cursor-pointer">
             LIHAT SEMUA PRODUK &rarr;
           </button>
         </div>
@@ -31,29 +31,25 @@ export default function FeaturedProduct() {
             return (
               <div
                 key={idx}
-                className="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden flex flex-col group hover:shadow-lg hover:border-[#00a651]/50 transition-all duration-300"
+                className="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden flex flex-col group hover:shadow-lg hover:border-[#00a651]/50 transition-all duration-300 hover:-translate-y-2"
               >
                 {/* Product Image Placeholder */}
                 <Link
                   href={`/product/${slug}`}
                   className="h-56 bg-gray-100 relative w-full flex items-center justify-center overflow-hidden"
                 >
-                  <div className="w-full h-full bg-gradient-to-br from-gray-100 to-gray-200 group-hover:scale-110 transition-transform duration-500"></div>
+                  <div className="w-full h-full bg-gradient-to-br from-gray-100 to-gray-200"></div>
 
                   {/* Category Badge */}
                   <span className="absolute top-3 left-3 bg-[#111d35] text-white text-[10px] font-bold px-2 py-1 rounded shadow-sm tracking-wider">
                     {product.category}
                   </span>
 
-                  {/* Placeholder Text */}
-                  {/* <span className="absolute text-gray-400 font-semibold text-sm tracking-widest uppercase">
-                    MOCKUP PRODUK
-                  </span> */}
                   <Image
                     src={product.image}
                     alt={product.title}
                     fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="object-cover transition-transform duration-500"
                   />
                 </Link>
 
@@ -78,7 +74,7 @@ export default function FeaturedProduct() {
                   <div className="flex gap-2">
                     <Link
                       href={`/product/${slug}`}
-                      className="flex-grow flex items-center justify-center bg-white border border-[#00a651] text-[#00a651] rounded text-xs font-bold tracking-wider py-2.5 hover:bg-[#00a651] hover:text-white transition-colors uppercase"
+                      className="flex-grow flex items-center justify-center bg-white border border-[#00a651] text-[#00a651] rounded text-xs font-bold tracking-wider py-2.5 group-hover:bg-[#00a651] group-hover:text-white transition-colors uppercase"
                     >
                       Lihat Detail
                     </Link>

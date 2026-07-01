@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { caseStudies } from "@/lib/site-data";
 
 export default function CaseStudies() {
@@ -90,16 +91,18 @@ export default function CaseStudies() {
             {caseStudies.map((cs) => (
               <div key={cs.name} className="w-[300px] md:w-[450px] shrink-0">
                 {/* Mengganti grid 3x3 menjadi satu kotak 1:1 */}
-                <div className="aspect-square bg-gray-200 overflow-hidden relative group cursor-pointer">
-                  <img
+                <div className="relative aspect-square overflow-hidden bg-gray-200 group">
+                  <Image
                     src={cs.image}
                     alt={cs.name}
+                    fill // Menggantikan h-full w-full
                     draggable={false}
-                    className="h-full w-full object-cover"
+                    className="object-cover"
+                    sizes="(max-width: 768px) 300px, 450px" // Ukuran ini disesuaikan dengan lebar dari elemen pembungkus (w-[300px] dan md:w-[450px])
                   />
 
                   {/* Efek Hover overlay tetap dipertahankan */}
-                  <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-black/20 opacity-0 transition-opacity duration-300"></div>
                 </div>
               </div>
             ))}
